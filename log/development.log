@@ -1,0 +1,134 @@
+  [1m[36m (52.5ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [1m[35m (11.1ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateProjects (20140207111042)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.2ms)[0m  [1mCREATE TABLE "projects" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "description" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20140207111042"]]
+  [1m[36m (34.9ms)[0m  [1mcommit transaction[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+
+
+Started GET "/" for 127.0.0.1 at 2014-02-07 06:49:27 -0500
+  [1m[36mActiveRecord::SchemaMigration Load (0.7ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by ProjectsController#index as HTML
+  Rendered projects/index.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 254ms (Views: 229.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-02-07 06:49:27 -0500
+
+
+Started GET "/assets/projects.css?body=1" for 127.0.0.1 at 2014-02-07 06:49:28 -0500
+
+
+Started GET "/assets/projects.js?body=1" for 127.0.0.1 at 2014-02-07 06:49:28 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-02-07 06:49:28 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-02-07 06:49:28 -0500
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-02-07 06:49:28 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-02-07 06:49:28 -0500
+
+
+Started GET "/projects/new" for 127.0.0.1 at 2014-02-07 06:49:30 -0500
+Processing by ProjectsController#new as HTML
+  Rendered projects/new.html.erb within layouts/application (22.5ms)
+Completed 200 OK in 30ms (Views: 27.2ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/projects" for 127.0.0.1 at 2014-02-07 06:49:43 -0500
+Processing by ProjectsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"5vj0hKl9HEh7KiwV/0kjki3pggAIgXn8gAet7JkiP9E=", "project"=>{"name"=>"vero", "description"=>"blah"}, "commit"=>"Create Project"}
+Completed 500 Internal Server Error in 1ms
+
+ActiveModel::ForbiddenAttributesError (ActiveModel::ForbiddenAttributesError):
+  app/controllers/projects_controller.rb:10:in `create'
+
+
+  Rendered /home/venia/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.7ms)
+  Rendered /home/venia/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.3ms)
+  Rendered /home/venia/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.0ms)
+  Rendered /home/venia/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (16.9ms)
+
+
+Started POST "/projects" for 127.0.0.1 at 2014-02-07 07:12:15 -0500
+Processing by ProjectsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"5vj0hKl9HEh7KiwV/0kjki3pggAIgXn8gAet7JkiP9E=", "project"=>{"name"=>"vero", "description"=>"blah"}, "commit"=>"Create Project"}
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (2.8ms)[0m  [1mINSERT INTO "projects" ("created_at", "description", "name", "updated_at") VALUES (?, ?, ?, ?)[0m  [["created_at", Fri, 07 Feb 2014 12:12:15 UTC +00:00], ["description", "blah"], ["name", "vero"], ["updated_at", Fri, 07 Feb 2014 12:12:15 UTC +00:00]]
+  [1m[35m (41.4ms)[0m  commit transaction
+Redirected to http://localhost:3000/projects/1
+Completed 302 Found in 63ms (ActiveRecord: 45.0ms)
+
+
+Started GET "/projects/1" for 127.0.0.1 at 2014-02-07 07:12:15 -0500
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mProject Load (0.2ms)[0m  [1mSELECT "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT 1[0m  [["id", "1"]]
+  Rendered projects/show.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 7ms (Views: 4.2ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-02-07 07:12:15 -0500
+
+
+Started GET "/assets/projects.css?body=1" for 127.0.0.1 at 2014-02-07 07:12:15 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-02-07 07:12:15 -0500
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-02-07 07:12:15 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-02-07 07:12:15 -0500
+
+
+Started GET "/assets/projects.js?body=1" for 127.0.0.1 at 2014-02-07 07:12:15 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-02-07 07:12:15 -0500
+
+
+Started GET "/projects" for 127.0.0.1 at 2014-02-07 07:12:23 -0500
+Processing by ProjectsController#index as HTML
+  Rendered projects/index.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 5ms (Views: 4.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-02-07 07:12:23 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-02-07 07:12:23 -0500
+
+
+Started GET "/assets/projects.js?body=1" for 127.0.0.1 at 2014-02-07 07:12:23 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-02-07 07:12:23 -0500
+
+
+Started GET "/assets/projects.css?body=1" for 127.0.0.1 at 2014-02-07 07:12:23 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-02-07 07:12:23 -0500
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-02-07 07:12:23 -0500
+
+
+Started GET "/projects/new" for 127.0.0.1 at 2014-02-07 07:12:26 -0500
+Processing by ProjectsController#new as HTML
+  Rendered projects/new.html.erb within layouts/application (2.4ms)
+Completed 200 OK in 7ms (Views: 6.4ms | ActiveRecord: 0.0ms)
